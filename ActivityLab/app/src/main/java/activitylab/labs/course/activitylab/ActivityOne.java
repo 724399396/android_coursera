@@ -81,10 +81,10 @@ public class ActivityOne extends Activity {
             // TODO:
             // Restore value of counters from saved state
             // Only need 4 lines of code, one for every count variable
-            mCreate = (Integer) savedInstanceState.get("mCreate");
-            mRestart = (Integer) savedInstanceState.get("mRestart");
-            mStart = (Integer) savedInstanceState.get("mStart");
-            mResume = (Integer) savedInstanceState.get("mResume");
+            mCreate = (Integer) savedInstanceState.get(CREATE_KEY);
+            mRestart = (Integer) savedInstanceState.get(RESTART_KEY);
+            mStart = (Integer) savedInstanceState.get(START_KEY);
+            mResume = (Integer) savedInstanceState.get(RESUME_KEY);
         }
 
         // Emit LogCat message
@@ -170,10 +170,10 @@ public class ActivityOne extends Activity {
         // TODO:
         // Save state information with a collection of key-value pairs
         // 4 lines of code, one for every count variable
-        savedInstanceState.putInt("mCreate", mCreate);
-        savedInstanceState.putInt("mRestart", mRestart);
-        savedInstanceState.putInt("mStart", mStart);
-        savedInstanceState.putInt("mResume", mResume);
+        savedInstanceState.putInt(CREATE_KEY, mCreate);
+        savedInstanceState.putInt(RESTART_KEY, mRestart);
+        savedInstanceState.putInt(START_KEY, mStart);
+        savedInstanceState.putInt(RESUME_KEY, mResume);
     }
 
     // Updates the displayed counters
@@ -183,7 +183,6 @@ public class ActivityOne extends Activity {
     public void displayCounts() {
 
         // TODO - uncomment these lines
-
 		mTvCreate.setText("onCreate() calls: " + mCreate);
 		mTvStart.setText("onStart() calls: " + mStart);
 		mTvResume.setText("onResume() calls: " + mResume);
