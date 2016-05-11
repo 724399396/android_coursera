@@ -75,7 +75,7 @@ public class ToDoListAdapter extends BaseAdapter {
         // Fill in specific ToDoItem data
         // Remember that the data that goes in this View
         // corresponds to the user interface elements defined
-        // in the layout file
+        // in the layout file``
 
         // DONE -- Display Title in TextView
         final TextView titleView = (TextView) itemLayout.findViewById(R.id.titleView);
