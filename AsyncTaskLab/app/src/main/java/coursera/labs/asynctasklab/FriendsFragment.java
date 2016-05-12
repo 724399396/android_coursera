@@ -11,7 +11,7 @@ import android.widget.ListView;
 /**
  * Created by weili on 16-5-11.
  */
-public class FriendsFragement extends ListFragment {
+public class FriendsFragment extends ListFragment {
     // HostingActivity
     private SelectionListener mCallback;
 
@@ -27,7 +27,7 @@ public class FriendsFragement extends ListFragment {
         super.onAttach(activity);
 
         // Make sure that the hosting Activity has implemented
-        // the callback interface
+        // the callback interface.
         try {
             mCallback = (SelectionListener) activity;
         } catch (ClassCastException e) {
@@ -42,16 +42,22 @@ public class FriendsFragement extends ListFragment {
 
         // Enable user interaction only if data is available
         setAllowUserClicks(mCallback.canAllowUserClicks());
+
     }
 
     // Enable/disable user interaction
-    void setAllowUserClicks(boolean allowUserInteraction) {
-        getListView().setEnabled(allowUserInteraction);
-        if (allowUserInteraction) {
-            getListView().setBackgroundColor(Color.WHITE);
-        } else {
-            getListView().setBackgroundColor(Color.DKGRAY);
-        }
+    void setAllowUserClicks(final boolean allowUserInteraction) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                getListView().setEnabled(allowUserInteraction);
+                if (allowUserInteraction) {
+                    getListView().setBackgroundColor(Color.WHITE);
+                } else {
+                    getListView().setBackgroundColor(Color.DKGRAY);
+                }
+            }
+        });
     }
 
     @Override

@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.List;
 
 /**
  * Created by weili on 16-5-11.
@@ -34,10 +35,10 @@ public class DownloaderTaskFragment extends Fragment {
 
         // TODO: Retrieve arguments from DownloaderTaskFragment
         // Prepare them for use with DownloaderTask
-        Integer[] ids = null;
+        List<Integer> ids = getArguments().getIntegerArrayList(MainActivity.TAG_FRIEND_RES_IDS);
 
         // TODO: Start the DownloaderTask
-        downloaderTask.execute(ids);
+        downloaderTask.execute(ids.toArray(new Integer[ids.size()]));
     }
 
     // Assign current hosting Activity to mCallback
