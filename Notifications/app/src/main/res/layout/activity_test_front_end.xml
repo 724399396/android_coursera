@@ -10,7 +10,7 @@
     tools:context=".TestFrontEndActivity">
 
     <Button
-        android:id="@+id/rejuv_twwts_button"
+        android:id="@+id/rejuv_tweets_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
