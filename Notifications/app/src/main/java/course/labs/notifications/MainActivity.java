@@ -100,6 +100,7 @@ MainActivity extends Activity implements
                     // by setting result code to MainActivity.IS_ALIVE
                     if (isOrderedBroadcast()) {
                         setResultCode(MainActivity.IS_AVIVE);
+                        mFriendsFragment.setAllowUserClicks(true);
                     }
                 }
             };
