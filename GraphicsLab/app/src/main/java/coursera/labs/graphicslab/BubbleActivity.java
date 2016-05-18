@@ -197,7 +197,7 @@ public class BubbleActivity extends Activity {
         private final Paint mPainter = new Paint();
         private ScheduledFuture<?> mMoveFuture;
         private int mScaledBitmapWidth;
-        private Bitmap mSclaedBitmap;
+        private Bitmap mScaledBitmap;
 
         // location, speed and direction of the bubble
         private float mXPos, mYPos, mDx, mDy, mRadius, mRadiusSquared;
@@ -271,7 +271,7 @@ public class BubbleActivity extends Activity {
             }
 
             // TODO - create the scaled bitmap using size set above
-            mSclaedBitmap = Bitmap.createScaledBitmap(mBitmap, mScaledBitmapWidth, mScaledBitmapWidth, true);
+            mScaledBitmap = Bitmap.createScaledBitmap(mBitmap, mScaledBitmapWidth, mScaledBitmapWidth, true);
         }
 
         // Start moving the BubbleView & updating display
@@ -358,18 +358,20 @@ public class BubbleActivity extends Activity {
             canvas.rotate((float) mRotate, mXPos + mRadius, mYPos + mRadius);
 
             // TODO - draw the bitmap at its new location
-
+            canvas.drawBitmap(mScaledBitmap, mXPos, mYPos, mPainter);
 
             // TODO - restore the canvas
-
+            canvas.restore();
         }
 
         // Returns true if the BubbleView is still on the screen after the move
         // operation
         private synchronized boolean moveWhileOnScreen() {
             // TODO - Move the BubbleView
+            mXPos += mDx;
+            mYPos += mDy;
 
-            return false;
+            return isOutOfView();
         }
 
         // Return true if the BubbleView is off the screen after the move
@@ -378,7 +380,7 @@ public class BubbleActivity extends Activity {
             // TODO - Return true if the BubbleView is off the screen after
             // the move operation
 
-            if (mXPos < 0 || mXPos > mDisplayWidth || mYPos < 0 || mYPos > mDisplayHeight) {
+            if (mXPos < 0 || mXPos + mScaledBitmapWidth > mDisplayWidth || mYPos < 0 || mYPos + mScaledBitmapWidth > mDisplayHeight) {
                 return true;
             }
             return false;
