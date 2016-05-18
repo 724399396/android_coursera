@@ -218,7 +218,7 @@ public class BubbleActivity extends Activity {
             mRadiusSquared = mRadius * mRadius;
 
             // Adjust position to center the bubble under user's finger
-            mYPos = x - mRadius;
+            mXPos = x - mRadius;
             mYPos = y - mRadius;
 
             // Set the BubbleView's speed and direction
