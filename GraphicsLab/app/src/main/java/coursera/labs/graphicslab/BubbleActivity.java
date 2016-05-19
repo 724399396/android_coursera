@@ -94,7 +94,7 @@ public class BubbleActivity extends Activity {
         });
 
         // TODO - load the sound from res/raw/bubble_pop.wav
-        mSoundPool.load(getApplicationContext(), R.raw.bubble_pop, 1);
+        mSoundID = mSoundPool.load(getApplicationContext(), R.raw.bubble_pop, 1);
     }
 
     @Override
